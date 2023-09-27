@@ -1,0 +1,29 @@
+* {
+    list-style: none;
+  }
+
+  #Userid{
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  .active {
+    
+    width: 500px;
+    height: 170px;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-left: 100px;
+    transform: translateX(110%);
+    transition: transform 1s ease;
+    
+  }
+  
+  .inactive {
+    border: none;
+  }
+  

@@ -1,0 +1,92 @@
+.credit-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    width: 300px;
+    border: 0;
+    border-radius: 10px;
+    
+    background-size: cover;
+    color: #fff;    
+  }
+  
+  .myForm {
+    margin-top: 15rem;
+    
+  
+  }
+  
+  .credit-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 14, 78);
+    
+  }
+  
+  .credit-card-credentials {
+    display: flex;
+    justify-content: center;
+    font-family: "Fjalla One", sans-serif;
+    font-size: 20px;
+  }
+  
+  .credit-card-nameid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    font-family: "Fjalla One", sans-serif;
+    font-size: 15px;
+  }
+  
+  .credit-card-info-name {
+    font-size: 12px;
+    margin-top: 2rem;
+  }
+  
+  .credit-card-info-expiry {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .credit-card-img{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 7rem;
+    margin-left: 20px;
+    height: auto;
+  }
+
+  
+#MyAmex{
+    height: 250px;
+    width: 400px;
+    object-fit: contain;
+    border-radius: 40px;
+    mix-blend-mode: multiply;
+    margin-bottom: -170px;
+    
+}
+
+#MyVisa{
+  height: 250px;
+    width: 400px;
+    object-fit: contain;
+    border-radius: 40px;
+    mix-blend-mode: multiply;
+    margin-bottom: -170px;
+  
+}
+
+#MyBit{
+  height: 250px;
+    width: 400px;
+    object-fit: contain;
+    border-radius: 40px;
+    mix-blend-mode: multiply;
+    margin-bottom: -170px;
+  
+}
+
