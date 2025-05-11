@@ -5,7 +5,7 @@ import "./card.css";
 import amexImage from "../../style/img/amex.jpg";
 import visaImage from "../../style/img/Visa.jpg";
 import bitcoinImage from "../../style/img/Bitcoin.jpg";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const cardData = {
   cardName: "",
@@ -13,30 +13,29 @@ const cardData = {
   cardMonth: "",
   cardYear: "",
   ccv: "",
-  bankName: "American Express", 
+  bankName: "American Express",
 };
 
 const Card = () => {
   const creditCard = useSelector((state) => state.cardInfo);
   const dispatch = useDispatch();
   const [values, setValues] = useState(cardData);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
-    
-    dispatch(fetchRandomUser())
-      .then((response) => {
-        const { first, last } = response.payload.name;
-        const wholeName = `${first} ${last}`.toUpperCase();
-        setValues({
-          ...values,
-          cardName: wholeName,
-        });
-      })
-      .catch((error) => {
-        console.error("Failed to fetch random user: ", error);
-      });
-  }, []); 
+  dispatch(fetchRandomUser())
+    .then((response) => {
+      const { first, last } = response.payload.name;
+      const wholeName = `${first} ${last}`.toUpperCase();
+      setValues((prev) => ({
+        ...prev,
+        cardName: wholeName,
+      }));
+    })
+    .catch((error) => {
+      console.error("Failed to fetch random user: ", error);
+    });
+}, [dispatch]);
 
   const handleChange = (e) => {
     const nextCard = {
@@ -44,15 +43,12 @@ const Card = () => {
       [e.target.name]: e.target.value,
     };
     setValues(nextCard);
-
-
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     if (creditCard.cardInformation.length < 4) {
-      
       dispatch(fetchRandomUser())
         .then((response) => {
           const { first, last } = response.payload.name;
@@ -63,7 +59,7 @@ const Card = () => {
           };
           dispatch(addNewCard(updatedValues));
           setValues(cardData);
-          navigate("/ewallet"); 
+          navigate("/ewallet");
         })
         .catch((error) => {
           console.error("Failed to fetch random user: ", error);
@@ -74,38 +70,38 @@ const Card = () => {
   };
 
   return (
-    <>
-      <div className="credit-card">
-        <div className="credit-card-img">
-          {values.bankName === "American Express" ? (
-            <img src={amexImage} id="MyAmex" alt="American Express" />
-          ) : values.bankName === "Visa" ? (
-            <img src={visaImage} id="MyVisa" alt="Visa" />
-          ) : (
-            <img src={bitcoinImage} id="MyBit" alt="Bitcoin" />
-          )}
-        </div>
-
-        <div className="credit-card-credentials">{values.cardNumber}</div>
-        <span className="credit-ccv">{values.ccv}</span>
-        <div className="credit-card-nameid">
-          <div className="credit-card-info-name">
-            <div className="credit-card-info-label"></div>
-            <div className="valid">Name</div>
-            <div>{values.cardName}</div>
+    <div className="card-page">
+      <div className="card-preview">
+        <div className="credit-card">
+          <div className="credit-card-img">
+            {values.bankName === "American Express" ? (
+              <img src={amexImage} id="MyAmex" alt="American Express" />
+            ) : values.bankName === "Visa" ? (
+              <img src={visaImage} id="MyVisa" alt="Visa" />
+            ) : (
+              <img src={bitcoinImage} id="MyBit" alt="Bitcoin" />
+            )}
           </div>
 
-          <div className="credit-card-info-expiry">
-            <div className="valid">Valid to</div>
-            <div className="credit-card-info-label"></div>
-            <div>
-              {values.cardMonth} / {values.cardYear}
+          <div className="credit-card-credentials">{values.cardNumber}</div>
+          <span className="credit-ccv">{values.ccv}</span>
+          <div className="credit-card-nameid">
+            <div className="credit-card-info-name">
+              <div className="valid">Name</div>
+              <div>{values.cardName}</div>
+            </div>
+
+            <div className="credit-card-info-expiry">
+              <div className="valid">Valid to</div>
+              <div>
+                {values.cardMonth} / {values.cardYear}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div>
+      <div className="card-form">
         <form className="myForm" onSubmit={handleSubmit}>
           <label>
             Number
@@ -152,7 +148,6 @@ const Card = () => {
               onChange={handleChange}
             />
           </label>
-          
 
           <select name="bankName" value={values.bankName} onChange={handleChange}>
             <option value="American Express">American Express</option>
@@ -160,12 +155,10 @@ const Card = () => {
             <option value="Bitcoin">Bitcoin</option>
           </select>
 
-          
-
           <button>Submit</button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+
 export const fetchRandomUser = createAsyncThunk(
   "card/fetchRandomUser",
   async () => {
@@ -16,6 +17,7 @@ const initialState = {
   cardList: [],
   cardInformation: [
     {
+      id: 1,  
       cardName: "",
       cardNumber: "1111 2222 3333 4444",
       cardMonth: "9",
@@ -27,12 +29,19 @@ const initialState = {
   ]
 };
 
+let cardIdCounter = 1; 
+
+
 const cardSlice = createSlice({
   name: "card",
   initialState,
   reducers: {
     addNewCard: (state, action) => {
-      state.cardInformation = state.cardInformation.concat(action.payload);
+      const newCard = {
+        id: cardIdCounter++, // Assign a unique ID and increment the counter
+        ...action.payload, // Include other card properties from the action payload
+      };
+      state.cardInformation = [...state.cardInformation, newCard];
     },
     deleteCard: (state, action) => {
       const cardIdToDelete = action.payload;

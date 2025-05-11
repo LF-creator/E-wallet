@@ -1,92 +1,104 @@
+:root {
+  --primary-color: rgb(0, 14, 78);
+  --font-family: "Fjalla One", sans-serif;
+}
+
 .credit-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 150px;
-    width: 300px;
-    border: 0;
-    border-radius: 10px;
-    
-    background-size: cover;
-    color: #fff;    
-  }
-  
-  .myForm {
-    margin-top: 15rem;
-    
-  
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: auto;
+  border: none;
+  border-radius: 2px;
+  background-size: cover;
+  color: var(--primary-color);
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.credit-card:hover {
+  transform: scale(1.02);
+}
+
+.myForm {
+  margin-top: 15rem;
+}
+
+.credit-card-credentials {
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-size: 1.25rem;
+}
+
+.credit-card-nameid {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.credit-card-info-name {
+  font-size: 0.8rem;
+  margin-top: 2rem;
+}
+
+.credit-card-info-expiry {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.credit-card-img {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 7rem;
+  margin-left: 20px;
+  height: auto;
+}
+
+#MyAmex,
+#MyVisa,
+#MyBit {
+  height: 250px;
+  width: 400px;
+  object-fit: contain;
+  border-radius: 40px;
+  mix-blend-mode: multiply;
+  margin-bottom: -170px;
+}
+
+/* Optional: Responsive tweaks */
+@media (max-width: 500px) {
   .credit-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(0, 14, 78);
-    
-  }
-  
-  .credit-card-credentials {
-    display: flex;
-    justify-content: center;
-    font-family: "Fjalla One", sans-serif;
-    font-size: 20px;
-  }
-  
-  .credit-card-nameid {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-    font-family: "Fjalla One", sans-serif;
-    font-size: 15px;
-  }
-  
-  .credit-card-info-name {
-    font-size: 12px;
-    margin-top: 2rem;
-  }
-  
-  .credit-card-info-expiry {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .credit-card-img{
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 7rem;
-    margin-left: 20px;
+    width: 90%;
     height: auto;
+    padding: 1.5rem;
   }
 
-  
-#MyAmex{
-    height: 250px;
-    width: 400px;
-    object-fit: contain;
-    border-radius: 40px;
-    mix-blend-mode: multiply;
-    margin-bottom: -170px;
-    
+  #MyAmex,
+  #MyVisa,
+  #MyBit {
+    width: 100%;
+    height: auto;
+    margin-bottom: -120px;
+  }
 }
 
-#MyVisa{
-  height: 250px;
-    width: 400px;
-    object-fit: contain;
-    border-radius: 40px;
-    mix-blend-mode: multiply;
-    margin-bottom: -170px;
-  
+.card-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
 }
 
-#MyBit{
-  height: 250px;
-    width: 400px;
-    object-fit: contain;
-    border-radius: 40px;
-    mix-blend-mode: multiply;
-    margin-bottom: -170px;
-  
+.card-preview,
+.card-form {
+  flex: 1 1 300px;
 }
-

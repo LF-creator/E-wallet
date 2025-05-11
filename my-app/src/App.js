@@ -14,23 +14,22 @@ export default function App() {
 
   return (
     <Router>
-      <div className="App" id="this">
-        <h1 id="fh1"> E-WALLET </h1>
+      <div className="App container" id="this">
+  <h1 className="main-heading">E-WALLET</h1>
 
-        <Link to="/ewallet" id="nolinks">
-          <button id="button1"> E-wallet </button>
-        </Link>
-        
+  <Link to="/ewallet" id="nolinks">
+    <button id="button1">E-wallet</button>
+  </Link>
 
-        <Routes>
-          <Route path="/ewallet" element={<Ewallet />} />
-          <Route path="/addcard" element={<AddCard />} />
-        </Routes>
+  <Routes>
+    <Route path="/ewallet" element={<Ewallet />} />
+    <Route path="/addcard" element={<AddCard />} />
+  </Routes>
 
-        <Link to="/addcard" id="nolinks2">
-          <button id="button2"> AddCard</button>
-        </Link>
-      </div>
+  <Link to="/addcard" id="nolinks2">
+    <button id="button2">AddCard</button>
+  </Link>
+</div>
     </Router>
   );
 }
